@@ -16,10 +16,15 @@ function getRandomCat() {
     });
 }
 
-// async function getData() {
-//     const res = await fetch("https://meowfacts.herokuapp.com/");
-//     const data = await res.json();
-//     console.log(data);
+function getRandomFact() {
+  console.log("fet");
+  fetch("https://meowfacts.herokuapp.com/")
+    .then((res) => res.json())
+    .then((data) => {
+      fact_result.innerHTML = `<i>${data.data.join("")}</i>`;
+    });
+}
 
-//   getData();
+getRandomCat();
+getRandomFact();
 

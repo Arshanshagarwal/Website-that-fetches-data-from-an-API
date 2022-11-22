@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat facts</title>
-    <link rel="stylessheet" href="styles.css">
+    <title>Random photos or cat facts</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="data"></div>
+    <main>
+        <h1 class="title">Photos and cat facts generator</h1>
+        <p>
+            Press a button to generate a random photos or cat facts.
+        </p>
+        <div class="results">
+            <div class="result" id="cat-result"></div>
+            <div class="result" id="fact-result"></div>
+        </div>
+        <div class="buttons">
+            <button id="cat-btn">Get a photo</button>
+            <button id="fact-btn">Get a fact</button>
+        </div>
+    </main>
     
     <script src="script.js"></script>
 </body>

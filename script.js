@@ -1,11 +1,25 @@
-async function getData() {
-    const res = await fetch("https://meowfacts.herokuapp.com/");
-    const data = await res.json();
-    console.log(data);
-  
-    const textBlock = document.createElement("div");
-    textBlock.innerHTML = data.data[0];
-    document.body.append(textBlock);
-  }
-  
-  getData();
+"use strict";
+
+const cat_btn = document.getElementById("cat-btn");
+const fact_btn = document.getElementById("fact-btn");
+const cat_result = document.getElementById("cat-result");
+const fact_result = document.getElementById("fact-result");
+
+cat_btn.addEventListener("click", getRandomCat);
+fact_btn.addEventListener("click", getRandomFact);
+
+function getRandomCat() {
+  fetch("https://aws.random.cat/meow")
+    .then((res) => res.json())
+    .then((data) => {
+      cat_result.innerHTML = `<img src=${data.file} alt="cat" />`;
+    });
+}
+
+// async function getData() {
+//     const res = await fetch("https://meowfacts.herokuapp.com/");
+//     const data = await res.json();
+//     console.log(data);
+
+//   getData();
+

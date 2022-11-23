@@ -1,3 +1,13 @@
+@font-face {
+  font-family:'HennyPenny-Regular';
+  src: url(fonts/HennyPenny-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Merienda';
+  src: url(fonts/Merienda-VariableFont_wght.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,13 +26,18 @@
     font-size: 20px;
   }
 
+  h1{
+    font-family:'HennyPenny-Regular';
+  }
+
   h1, p {
     margin: 30px;
-    background-color: #ffffff;
     background-color: rgb(231, 177, 160);
     border: 0;
     border-radius: 4px;
     text-align: center;
+    padding: 10px;
+    width: 620px;
   }
 
   .results {
@@ -39,6 +54,10 @@
     margin: 10px;
     height: 400px;
     width: 300px;
+  }
+
+  #fact-result{
+    text-align: center;
   }
   
   .result img {
@@ -70,4 +89,19 @@
   
   button:focus {
     outline: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .results, .buttons{
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  footer {
+    text-align: center;
+    background-color: rgb(231, 177, 160);
+    width: 620px;
+    padding: 10px;
   }

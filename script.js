@@ -20,6 +20,9 @@ function getRandomCat() {
     .then((res) => res.json())
     .then((data) => {
       cat_result.innerHTML = `<img src=${data.file} alt="cat"/>`;
+
+        // Store the cat picture URL in localStorage
+      localStorage.setItem("catPicture", data.file());
     });
 }
 
@@ -30,6 +33,9 @@ function getRandomFact() {
     .then((res) => res.json())
     .then((data) => {
       fact_result.innerHTML = `<i>${data.data.join("")}</i>`;
+
+        // Store the cat fact in localStorage
+      localStorage.setItem("catFact", data.data.join(""));
     });
 }
 

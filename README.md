@@ -4,7 +4,7 @@
 
 # Project description
 
-The website fetches data from an API to show users a random cat's photos on the left side and random facts about cats on the right side.
+The website fetches data from an API to show users random cat photos on the left side and random facts about cats on the right side.
 
 If the user presses the left button "Get a photo", the user will see a new random cat photo.
 

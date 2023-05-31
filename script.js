@@ -1,7 +1,5 @@
 "use strict";
 
-// Variables to declare a constant (unchanging) variable
-
 const cat_btn = document.getElementById("cat-btn");
 const fact_btn = document.getElementById("fact-btn");
 const cat_result = document.getElementById("cat-result");
@@ -14,31 +12,34 @@ cat_btn.addEventListener("click", getRandomCat);
 fact_btn.addEventListener("click", getRandomFact);
 
 // Get random cat pictures
-
 function getRandomCat() {
-  fetch("https://aws.random.cat/meow")
-    .then((res) => res.json())
-    .then((data) => {
-      cat_result.innerHTML = `<img src=${data.file} alt="cat"/>`;
+    fetch("https://cataas.com/c")
+        .then((res) => {
+            cat_result.innerHTML = `<img src="${res.url}" alt="cat"/>`;
 
-        // Store the cat picture URL in localStorage
-      localStorage.setItem("catPicture", data.file());
-    });
+            // Store the cat picture URL in localStorage
+            localStorage.setItem("catPicture", res.url);
+        });
 }
 
-// Get random cat facts 
-
+// Get random cat facts
 function getRandomFact() {
-  fetch("https://meowfacts.herokuapp.com/")
-    .then((res) => res.json())
-    .then((data) => {
-      fact_result.innerHTML = `<i>${data.data.join("")}</i>`;
+    fetch("https://meowfacts.herokuapp.com/")
+        .then((res) => res.json())
+        .then((data) => {
+            fact_result.innerHTML = `<i>${data.data.join("")}</i>`;
 
-        // Store the cat fact in localStorage
-      localStorage.setItem("catFact", data.data.join(""));
-    });
+            // Store the cat fact in localStorage
+            localStorage.setItem("catFact", data.data.join(""));
+        });
+}
+
+// Check if cat picture is stored in localStorage
+if (localStorage.getItem("catPicture")) {
+    cat_result.innerHTML = `<img src="${localStorage.getItem("catPicture")}" alt="cat"/>`;
 }
 
 getRandomCat();
 getRandomFact();
+
 

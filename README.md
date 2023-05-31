@@ -18,6 +18,10 @@ If the user presses the right button "Get a fact", the user will see a new rando
 
 ![Home page](/img/facts_2.png)
 
+## Free API to get a random cat image or gif => [Cataas](https://cataas.com/c)
+
+## Free API to get a random cat facts => [Meowfacts](https://meowfacts.herokuapp.com/)
+
 ## Languages Used  
 
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)

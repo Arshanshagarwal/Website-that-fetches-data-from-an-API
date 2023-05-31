@@ -5,41 +5,38 @@ const fact_btn = document.getElementById("fact-btn");
 const cat_result = document.getElementById("cat-result");
 const fact_result = document.getElementById("fact-result");
 
-// Get random cat pictures when a user clicks a button
 cat_btn.addEventListener("click", getRandomCat);
-
-// Get random cat facts when a user clicks a button
 fact_btn.addEventListener("click", getRandomFact);
 
-// Get random cat pictures
-function getRandomCat() {
-    fetch("https://cataas.com/c")
-        .then((res) => {
-            cat_result.innerHTML = `<img src="${res.url}" alt="cat"/>`;
+async function getRandomCat() {
+    try {
+        const response = await fetch("https://cataas.com/c");
+        const blob = await response.blob();
+        const imageURL = URL.createObjectURL(blob);
 
-            // Store the cat picture URL in localStorage
-            localStorage.setItem("catPicture", res.url);
-        });
+        cat_result.innerHTML = `<img src="${imageURL}" alt="cat" />`;
+        localStorage.setItem("catPicture", imageURL);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-// Get random cat facts
-function getRandomFact() {
-    fetch("https://meowfacts.herokuapp.com/")
-        .then((res) => res.json())
-        .then((data) => {
-            fact_result.innerHTML = `<i>${data.data.join("")}</i>`;
+async function getRandomFact() {
+    try {
+        const response = await fetch("https://meowfacts.herokuapp.com/");
+        const data = await response.json();
 
-            // Store the cat fact in localStorage
-            localStorage.setItem("catFact", data.data.join(""));
-        });
-}
-
-// Check if cat picture is stored in localStorage
-if (localStorage.getItem("catPicture")) {
-    cat_result.innerHTML = `<img src="${localStorage.getItem("catPicture")}" alt="cat"/>`;
+        if (data.data) {
+            fact_result.innerHTML = `<i>${data.data}</i>`;
+            localStorage.setItem("catFact", data.data);
+        } else {
+            fact_result.innerHTML = "<i>No cat fact available</i>";
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 getRandomCat();
 getRandomFact();
-
 

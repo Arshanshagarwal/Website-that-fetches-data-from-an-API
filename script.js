@@ -5,8 +5,13 @@ const fact_btn = document.getElementById("fact-btn");
 const fact_result = document.getElementById("fact-result");
 const cat_image = document.getElementById("cat-image");
 
-cat_btn.addEventListener("click", getRandomCat);
-fact_btn.addEventListener("click", getRandomFact);
+cat_btn.addEventListener("click", async () => {
+    await getRandomCat();
+});
+
+fact_btn.addEventListener("click", async () => {
+    await getRandomFact();
+});
 
 async function getRandomCat() {
     try {
@@ -41,4 +46,3 @@ async function getRandomFact() {
 
 getRandomCat();
 getRandomFact();
-

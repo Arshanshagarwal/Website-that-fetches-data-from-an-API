@@ -58,5 +58,7 @@ async function getRandomFact() {
     }
 }
 
+// Initially display a random cat photo and a random fact when the page loads
+
 getRandomCat();
 getRandomFact();
